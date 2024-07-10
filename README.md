@@ -7,7 +7,7 @@ Bits is a basic Python3 server for using the Windows Binary Intelligent Transfer
 ## Installation
 
 ```
-git clone https://github.dev/pwnedshell/bits && cd bits/
+git clone https://github.com/pwnedshell/bits && cd bits/
 pip3 install .
 ```
 

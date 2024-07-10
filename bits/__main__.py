@@ -391,10 +391,10 @@ class BITSRequestHandler(BaseHTTPRequestHandler):
             self.__send_response(headers, status_code = status_code)
 
 
-def run(server_class=HTTPServer, handler_class=BITSRequestHandler, port=80):
+def run(server_class=HTTPServer, handler_class=BITSRequestHandler, port=8000):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
-    print('Starting BITS server...')
+    print('Serving BITS on 0.0.0.0 port {port} (http://0.0.0.0:{port}/) ...'.format(port=port))
     httpd.serve_forever()
 
 
@@ -405,7 +405,7 @@ if __name__ == "__main__":
     # buffer = 1
     # sys.stderr = open('bits.log', 'w', buffer)
     if len(sys.argv) == 1:
-        run(port=8000)
+        run()
     elif len(sys.argv) == 2:
         run(port=int(sys.argv[1]))
     else:

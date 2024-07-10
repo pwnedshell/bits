@@ -1,33 +1,33 @@
-# BITSServer
+# Bits
 
-BITSServer is a basic Python3 server for using the Windows Binary Intelligent Transfer Service protocol (BITS), supporting file upload and download from Windows clients using the built-in `bitsadmin.exe` command-line tool, `BitsTransfer` PowerShell module, or COM interface.
+Bits is a basic Python3 server for using the Windows Binary Intelligent Transfer Service protocol (BITS), supporting file upload and download from Windows clients using the built-in `bitsadmin.exe` command-line tool, `BitsTransfer` PowerShell module, or COM interface.
 
-**WARNING: BITSServer uses Python3's built-in http.server library and is NOT recommended for production.**
+**WARNING: Bits uses Python3's built-in http.server library and is NOT recommended for production.**
 
 ## Installation
 
 ```
-git clone https://github.com/fkadibs/BITSServer && cd BITSServer/
+git clone https://github.dev/pwnedshell/bits && cd bits/
 pip3 install .
 ```
 
 
 ## Server Operation
 
-BITSServer supports uploading/downloading any files from the working directory.
-The server logs will write to `bitsserver.log`
+Bits supports uploading/downloading any files from the working directory.
+The server logs will write to `bits.log`
 
 You can run the server from the command line:
 
 ```
-python3 -m bitsserver 80
+python3 -m bits 80
 ```
 
 Alternatively, build and run the docker container:
 
 ```
-docker build --tag bitsserver .
-docker run bitsserver -d -p 80:80 -v /tmp/bits:/app
+docker build --tag bits .
+docker run bits -d -p 80:80 -v /tmp/bits:/app
 ```
 In this example, we are mapping the local `/tmp/bits` directory to the container's working directory (`/app`), acting as our download/upload directory, and log destination.
 

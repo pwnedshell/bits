@@ -402,12 +402,11 @@ if __name__ == "__main__":
     import sys
 
     # log to file
-    buffer = 1
-    sys.stderr = open('bitsserver.log', 'w', buffer)
-
-    if len(sys.argv) == 2:
+    # buffer = 1
+    # sys.stderr = open('bits.log', 'w', buffer)
+    if len(sys.argv) == 1:
+        run(port=8000)
+    elif len(sys.argv) == 2:
         run(port=int(sys.argv[1]))
-    elif len(sys.argv) < 2:
-        print('usage: python3 -m bitsserver <port>')
     else:
-        run()
+        print('usage: python3 -m bits <port>')
